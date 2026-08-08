@@ -1,0 +1,44 @@
+services:
+
+  domain-monitor:
+
+    build: .
+
+    container_name: domain-monitor
+
+    restart: always
+    
+    volumes:
+      - ./notified.txt:/app/notified.txt
+
+    environment:
+
+
+      # 监控列表
+      DOMAINS: "xxx.com,xxx.xyz,xxxx,xxxx"
+
+
+      # 秒
+      # 当前每分钟
+      INTERVAL: "60"
+
+
+
+      # SMTP邮箱
+
+      SMTP_SERVER: "smtp.qq.com"
+
+      SMTP_PORT: "465"
+
+
+       # 邮箱账号
+      MAIL_USER: "xxx@qq.com"
+
+
+      # 邮箱授权码
+      MAIL_PASS: "xxxxxxx"
+
+
+      # 接收提醒邮箱
+
+      MAIL_TO: "xxxx@qq.com"
